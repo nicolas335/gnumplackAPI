@@ -1,0 +1,145 @@
+.signin{
+    background-color: #a4c3b2;
+}
+.signin main {
+    width: 400px;
+    padding-top: 60px;
+    margin: 0 auto;
+    padding-bottom: 50px;
+}
+
+.signin main h1 {
+    text-align: center;
+    font-family: var(--fuenteParrafo)
+}
+
+
+.signin main .container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    margin-bottom: 15px;
+    font-weight: bold;
+    font-family: var(--fuenteParrafo)
+}
+
+.signin main .container label {
+    margin-bottom: 5px;
+    font-family: var(--fuenteParrafo)
+
+}
+
+.signin main .container input {
+    width: 80%;
+    padding: 10px;
+    font-family: var(--fuenteParrafo)
+}
+
+.signin main .container small, .signin small {
+    margin-top: 5px;
+    color: #f20808;
+    font-family: var(--fuenteParrafo)
+
+
+}
+
+.signin main h2 .container {
+    font-family: var(--fuenteParrafo);
+    text-align: center;
+    margin-top: 15px;
+}
+
+.signin main h4 {
+    text-align: center;
+    color: #000000;
+    font-family: var(--fuenteParrafo)
+}
+
+.signin main button {
+    padding: 20px;
+    background-color: #cce3de;
+    color: black;
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+    font-size: 20px;
+    width: 170px;
+    text-align: center;
+    font-family: var(--fuenteParrafo)
+
+}
+.signin .container .image-profile{
+    width: 100%;
+}
+
+.signin .bottom {
+    margin-bottom: 15px;
+    text-align: center;
+    font-family: var(--fuenteParrafo)
+}
+.signin .bottom button {
+   margin: 7px;
+}
+
+.signin main a {
+    color: #000000;
+    font-family: var(--fuenteParrafo)
+}
+.signin #imagenContainer{
+    text-align:center;
+}
+.signin .invalid{
+    background-color: rgba(208, 119, 10, .3);
+    color: rgba(0, 0, 0, .4);
+}
+
+/*tablet*/
+
+@media(min-width:461px) {
+    .signin main button {
+        padding: 15px;
+        background-color: #cce3de;
+        color: black;
+        font-weight: 600;
+        border: none;
+        border-radius: 10px;
+        font-size: 20px;
+        width: 170px;
+        text-align: center;
+        font-family: var(--fuenteParrafo)
+    }
+}
+
+    .signin .bottom {
+        margin-bottom: 10px;
+        text-align: center;
+        font-family: var(--fuenteParrafo)
+
+}
+
+
+/*Desktop*/
+
+@media(min-width :768px) {
+    .signin main button {
+        padding: 10px;
+        background-color: #cce3de;
+        color: black;
+        font-weight: 600;
+        border: none;
+        border-radius: 10px;
+        font-size: 20px;
+        width: 170px;
+        text-align: center;
+        font-family: var(--fuenteParrafo)
+
+    }
+
+    .signin .bottom {
+        margin-bottom: 5px;
+        text-align: center;
+        font-family: var(--fuenteParrafo)
+    }
+
+}

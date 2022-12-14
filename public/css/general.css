@@ -1,0 +1,27 @@
+main{
+    max-width: 95%;
+    margin: 0 auto;
+}
+*{
+    box-sizing: border-box;
+    margin: 0;
+    border: 0;
+    font-family: var(--fuenteSubtitulos);
+}
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color:black
+}
+h1, h2, h3, h4, h5{
+    font-family: var(--fuenteTitulos);
+}
+body{
+    /* background-color: rgba(255, 162, 0, 0.9);
+    background-repeat: no-repeat; */
+    height: 100%;
+    max-width: 1800px;
+    margin: 0 auto;
+}

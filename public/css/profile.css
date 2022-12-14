@@ -1,0 +1,130 @@
+.profile{
+    background: rgba(0, 0, 0, .85);
+}
+.profile .seccion-perfil-usuario .perfil-usuario-body,
+.profile .seccion-perfil-usuario {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    
+}
+
+.profile .seccion-perfil-usuario .perfil-usuario-avatar {
+    display: flex;
+    width: 180px;
+    height: 180px;
+    align-items: center;
+    justify-content: center;
+    border: 7px solid #FFFFFF;
+    background-color: #DFE5F2;
+    position: relative;
+    border-radius: 50%;
+    box-shadow: 0 0 12px rgba(0, 0, 0, .2);
+    z-index: 1;
+    margin: 20px;
+} 
+.profile .seccion-perfil-usuario .perfil-usuario-avatar .boton-avatar{
+    position: absolute;
+    left: -2px;
+    top: -2px;
+    border: 0;
+    background-color: #fff;
+    box-shadow: 0 0 12px rgba(0, 0, 0, .2);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+ .profile .seccion-perfil-usuario .perfil-usuario-avatar img {
+    width: 100%;
+    position: relative;
+    border-radius: 50%;
+} 
+
+.profile .seccion-perfil-usuario .perfil-usuario-body {
+    width: 70%;
+    position: relative;
+    max-width: 750px;
+}
+
+.profile .seccion-perfil-usuario .perfil-usuario-body .titulo {
+    display: block;
+    width: 100%;
+    font-size: 1.75em;
+    margin-bottom: 0.5rem;
+}
+   
+.profile .seccion-perfil-usuario .perfil-usuario-datos,
+.profile .seccion-perfil-usuario .perfil-usuario-bio {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1.5rem 2rem;
+    box-shadow: 0 0 12px rgba(0, 0, 0, .2);
+    background-image: url(../img/profile/fondo-div-user.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-radius: 15px;
+    width: 100%;
+}
+
+.profile .seccion-perfil-usuario .perfil-usuario-bio {
+    margin-bottom: 1.25rem;
+    text-align: center;
+}
+
+.profile .seccion-perfil-usuario .lista-datos {
+    width: 50%;
+    list-style: none;
+}
+
+.profile .seccion-perfil-usuario .lista-datos li {
+    padding: 5px 0;
+}
+
+.profile .seccion-perfil-usuario .lista-datos li>.icono {
+    margin-right: 1rem;
+    font-size: 1.2rem;
+    vertical-align: middle;
+}
+
+.profile main section .perfil-usuario-last{
+    display: inline-block; 
+    text-align: center;
+    padding: 1rem .5rem;
+    box-shadow: 0 0 12px rgba(0, 0, 0, .2);
+    background-image: url(../img/profile/fondo-div-user.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-radius: 15px;
+    width: 10%;
+    margin: 15px 10px;
+}
+
+.profile main section .perfil-usuario-last form button, .profile main section .perfil-usuario-last a button{
+    background: none;
+    cursor: pointer;
+}
+
+.profile main .container-section{
+    display: flex;
+    justify-content: center;
+}
+
+
+/* adaptacion a dispositivos */
+@media (max-width: 750px) {
+    .profile .seccion-perfil-usuario .lista-datos {
+        width: 100%;
+    }
+
+    .profile .seccion-perfil-usuario .perfil-usuario-portada,
+    .profile .seccion-perfil-usuario .perfil-usuario-body {
+        width: 95%;
+    }
+
+}
