@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 
-const {product, detail, search, create, history, update, trash, destroy} = require('../controllers/productsController');
+const {product, detail, search, create, history, update, trash, destroy, restore} = require('../controllers/productsController');
 const adminCheck = require('../middlewares/adminCheck');
 const upload = require('../middlewares/multerProducts');
 const productValidator = require('../validations/productValidation');

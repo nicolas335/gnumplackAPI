@@ -57,7 +57,7 @@ module.exports={
     },
     detail:(req,res)=>{
         db.Products.findOne({
-            where: {name: { [Op.substring]: req.query.name }}
+            where: {id: req.params.id }
         })
         .then(product => {
             return res.status(200).json({ 
@@ -151,8 +151,8 @@ module.exports={
         let conditions = db.Conditions.findAll()
         Promise.all([categories_products,conditions])
         .then(([categories_products,conditions]) => {
-            let categories_products = categories_products
-            let conditions = conditions
+            categories_products = categories_products
+            conditions = conditions
         })
         /* --- */
         return res.json({
