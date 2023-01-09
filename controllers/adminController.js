@@ -4,10 +4,10 @@ const { validationResult } = require('express-validator');
 const fs = require('fs')
 
 module.exports = {
-    list: (req, res) => {
+    /* list: (req, res) => {
         db.Products.findAll()
         .then(products => {
-                //return res.send(products)
+                
                 let response = {
                     meta: {
                         status: 200,
@@ -19,7 +19,36 @@ module.exports = {
                 res.status(200).json(response)
             })
             .catch(err => res.status(500).json('Hubo un error al acceder a la lista de productos'))
-    },
+    }, */
+     list: async (req, res) => {
+        try {
+          const products = await db.Products.findAll();
+      
+          // Permitir el acceso desde cualquier origen (control de CORS lo impide)
+        res.set({
+            'Access-Control-Allow-Origin': '*'
+        });
+
+          const response = {
+            meta: {
+              status: 200,
+              length: products.length,
+              link: `${req.protocol}://${req.get('host')}${req.originalUrl}`
+            },
+            data: products
+          };
+      
+          return res.status(200).json(response);
+        } catch (error) {
+          return res.status(500).json({
+            meta: {
+              status: 500,
+              message: 'Internal server error'
+            }
+          });
+        }
+      },
+      
 
     create: (req, res) => {
         let categories_products = db.Categories_products.findAll()
@@ -109,37 +138,74 @@ module.exports = {
         }
     },
 
-    edit: (req, res) => {
+    edit1: (req, res) => {
         let product = db.Products.findOne({
             where: {
-                id: req.params.id
+                id: +req.params.id
             },
             include: [{
                 all: true
             }]
         })
-        let categories_products = db.Categories_products.findAll()
-        let conditions = db.Conditions.findAll()
-        Promise.all([product, categories_products, conditions])
-            .then(([product, categories_products, conditions]) => {
-                let array = [
+        /* let categories_products = db.Categories_products.findAll()
+        let conditions = db.Conditions.findAll() */
+        Promise.all([product/* , categories_products, conditions */])
+            .then(([product/* , categories_products, conditions */]) => {
+                /* let array = [
                     {
                         product,
                         categories_products,
                         conditions
                     }
-                ]
+                ] */
                 let response = {
                     meta: {
                         status: 200,
                         link: `${req.protocol}://${req.get('host')}${req.originalUrl}`
                     },
-                    data: array
+                    data: /* array */product
                 }
                 res.status(200).json(response)
             })
             .catch(err => res.status(500).json('No se logró acceder a la información'))
     },
+    edit: async (req, res) => {
+        try {
+          // Obtén el producto con su respectiva relación
+          const product = await db.Products.findOne({
+            where: {
+              id: +req.params.id,
+            },
+            include: [{ all: true }], 
+          });
+      
+          // Obtén las categorías de productos y las condiciones
+           const [categoriesProducts, conditions] = await Promise.all([
+            db.Categories_products.findAll(),
+            db.Conditions.findAll(),
+          ]); 
+      
+          // Prepara la respuesta
+          const response = {
+            meta: {
+              status: 200,
+              link: `${req.protocol}://${req.get('host')}${req.originalUrl}`,
+            },
+            data: [{ product , categoriesProducts, conditions  }],
+          };
+      
+          // Envía la respuesta
+          res.status(200).json(response);
+        } catch (error) {
+          // En caso de error, envía una respuesta de error 500
+          res.status(500).json({
+            meta: {
+              status: 500,
+              message: 'No se logró acceder a la información',
+            },
+          });
+        }
+      },
 
     update: (req, res) => {
         /* let errors = validationResult(req)
